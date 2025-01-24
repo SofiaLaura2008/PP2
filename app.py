@@ -4,8 +4,9 @@ import plotly.express as px
 from sklearn.ensemble import RandomForestRegressor
 
 def get_data():
+    if not os.path.exists('data.csv'):
+        raise FileNotFoundError("O arquivo 'data.csv' não foi encontrado!")
     return pd.read_csv('data.csv')
-    
 
 def train_model():
     data = get_data()
